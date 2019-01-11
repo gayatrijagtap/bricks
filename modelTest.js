@@ -6,14 +6,14 @@ describe("Paddle", function() {
   describe("moveLeft", function() {
     it("should reduce paddle left by 5 units", function() {
       paddle.moveLeft();
-      assert.equal(5, paddle.left);
+      chai.assert.equal(5, paddle.left);
     });
   });
 
   describe("moveRight", function() {
     it("should increase paddle left by 5 units", function() {
       paddle.moveRight();
-      assert.equal(15, paddle.left);
+      chai.assert.equal(15, paddle.left);
     });
   });
 });
