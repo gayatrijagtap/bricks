@@ -1,7 +1,3 @@
-const Paddle = require("./model");
-const chai = require("chai");
-const { assert } = chai;
-
 describe("Paddle", function() {
   let paddle;
   beforeEach(function() {

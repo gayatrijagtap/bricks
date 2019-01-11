@@ -17,3 +17,11 @@ const createPaddle = function() {
   drawPaddle(paddle);
   return paddle;
 };
+
+const createScreen = function() {
+  let mainScreen = document.createElement("main");
+  mainScreen.id = "screen";
+  mainScreen.tabIndex = "0";
+  let body = document.getElementById("body");
+  body.appendChild(mainScreen);
+};

@@ -18,6 +18,7 @@ const addKeyListener = function(paddle) {
 };
 
 const initialize = function() {
+  createScreen();
   let paddle = createPaddle();
   addKeyListener(paddle);
 };

@@ -14,5 +14,3 @@ class Paddle {
     this.left += 5;
   }
 }
-
-module.exports = Paddle;
