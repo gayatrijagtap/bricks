@@ -14,3 +14,10 @@ class Paddle {
     this.left += 5;
   }
 }
+
+class Screen {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
