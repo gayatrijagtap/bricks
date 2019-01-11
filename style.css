@@ -1,4 +1,4 @@
-.screen {
+main {
   border: 2px solid black;
   height: 600px;
   width: 960px;
@@ -7,10 +7,6 @@
 }
 
 .paddle {
-  /* height: 20px; */
-  /* width: 200px; */
   background-color: green;
   position: absolute;
-  /* bottom: 0px; */
-  /* left: 380px; */
 }
