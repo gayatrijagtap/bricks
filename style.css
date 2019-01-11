@@ -1,0 +1,16 @@
+.screen {
+  border: 2px solid black;
+  height: 600px;
+  width: 960px;
+  margin: 100px auto;
+  position: relative;
+}
+
+.paddle {
+  /* height: 20px; */
+  /* width: 200px; */
+  background-color: green;
+  position: absolute;
+  /* bottom: 0px; */
+  /* left: 380px; */
+}
