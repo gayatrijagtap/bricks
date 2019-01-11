@@ -4,12 +4,11 @@ const ARROW_RIGHT = "ArrowRight";
 const movePaddle = function(paddle) {
   if (event.key == ARROW_LEFT) {
     paddle.moveLeft();
-    drawPaddle(paddle);
   }
   if (event.key == ARROW_RIGHT) {
     paddle.moveRight();
-    drawPaddle(paddle);
   }
+  drawPaddle(paddle);
 };
 
 const addKeyListener = function(paddle) {
