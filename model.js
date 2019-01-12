@@ -23,14 +23,31 @@ class Screen {
 }
 
 class Ball {
-  constructor(height, width, top, left) {
-    this.height = height;
-    this.width = width;
+  constructor(diameter, top, left) {
+    this.height = diameter;
+    this.width = diameter;
     this.top = top;
     this.left = left;
   }
 
-  moveBall() {
+  moveDown() {
     this.top += 5;
+  }
+  moveUp() {
+    this.top -= 5;
+  }
+  moveLeft() {
+    this.left -= 5;
+  }
+  moveRight() {
+    this.right += 5;
+  }
+}
+
+class Game {
+  constructor(screen, paddle, ball) {
+    this.screen = screen;
+    this.paddle = paddle;
+    this.ball = ball;
   }
 }

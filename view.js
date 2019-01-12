@@ -12,17 +12,15 @@ const addPixelSufix = value => value + "px";
 
 const getScreen = document => document.getElementById("screen");
 
-const appendChildTo = (parent, child) => parent.appendChild(child);
+const appendTo = (parent, child) => parent.appendChild(child);
 
-const createPaddle = function() {
+const createPaddle = function(paddle) {
   let paddleDiv = document.createElement("div");
   paddleDiv.id = "paddle_1";
   paddleDiv.className = "paddle";
   let screen = getScreen(document);
-  appendChildTo(screen, paddleDiv);
-  let paddle = new Paddle(20, 200, 380, 5);
+  appendTo(screen, paddleDiv);
   drawPaddle(paddle);
-  return paddle;
 };
 
 const getBody = document => document.getElementById("body");
@@ -33,13 +31,12 @@ const drawScreen = function(screen) {
   screenDiv.style.width = addPixelSufix(screen.width);
 };
 
-const createScreen = function() {
+const createScreen = function(screen) {
   let mainScreen = document.createElement("main");
   mainScreen.id = "screen";
   mainScreen.tabIndex = "0";
   let body = getBody(document);
-  appendChildTo(body, mainScreen);
-  let screen = new Screen(600, 960);
+  appendTo(body, mainScreen);
   drawScreen(screen);
 };
 
@@ -53,13 +50,11 @@ const drawBall = function(ball) {
   ballDiv.style.left = addPixelSufix(ball.left);
 };
 
-const createBall = function() {
+const createBall = function(ball) {
   let ballDiv = document.createElement("div");
   ballDiv.id = "ball_1";
   ballDiv.className = "ball";
   let screen = getScreen(document);
-  appendChildTo(screen, ballDiv);
-  let ball = new Ball(100, 100, 0, 0);
+  appendTo(screen, ballDiv);
   drawBall(ball);
-  return ball;
 };
