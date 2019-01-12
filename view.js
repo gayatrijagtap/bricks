@@ -44,10 +44,10 @@ const getBall = document => document.getElementById("ball_1");
 
 const drawBall = function(ball) {
   let ballDiv = getBall(document);
-  ballDiv.style.height = addPixelSufix(ball.height);
-  ballDiv.style.width = addPixelSufix(ball.width);
-  ballDiv.style.top = addPixelSufix(ball.top);
-  ballDiv.style.left = addPixelSufix(ball.left);
+  ballDiv.style.height = addPixelSufix(ball.diameter);
+  ballDiv.style.width = addPixelSufix(ball.diameter);
+  ballDiv.style.top = addPixelSufix(ball.position.x);
+  ballDiv.style.left = addPixelSufix(ball.position.y);
 };
 
 const createBall = function(ball) {

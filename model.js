@@ -22,25 +22,30 @@ class Screen {
   }
 }
 
+class BallPosition {
+  constructor(xPos, yPos) {
+    this.x = xPos;
+    this.y = yPos;
+  }
+}
+
+class Velocity {
+  constructor(velocityX, velocityY) {
+    this.x = velocityX;
+    this.y = velocityY;
+  }
+}
+
 class Ball {
-  constructor(diameter, top, left) {
-    this.height = diameter;
-    this.width = diameter;
-    this.top = top;
-    this.left = left;
+  constructor(diameter, ballPosition, velocity) {
+    this.diameter = diameter;
+    this.position = ballPosition;
+    this.velocity = velocity;
   }
 
-  moveDown() {
-    this.top += 5;
-  }
-  moveUp() {
-    this.top -= 5;
-  }
-  moveLeft() {
-    this.left -= 5;
-  }
-  moveRight() {
-    this.right += 5;
+  move() {
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
   }
 }
 
