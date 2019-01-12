@@ -29,4 +29,8 @@ class Ball {
     this.top = top;
     this.left = left;
   }
+
+  moveBall() {
+    this.top += 5;
+  }
 }

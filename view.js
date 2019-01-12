@@ -1,7 +1,7 @@
 const getPaddleDiv = document => document.getElementById("paddle_1");
 
 const drawPaddle = function(paddle) {
-  let paddleDiv = getPaddleDiv(document); //extract in one liner
+  let paddleDiv = getPaddleDiv(document);
   paddleDiv.style.height = addPixelSufix(paddle.height);
   paddleDiv.style.width = addPixelSufix(paddle.width);
   paddleDiv.style.left = addPixelSufix(paddle.left);
@@ -61,4 +61,5 @@ const createBall = function() {
   appendChildTo(screen, ballDiv);
   let ball = new Ball(100, 100, 0, 0);
   drawBall(ball);
+  return ball;
 };
