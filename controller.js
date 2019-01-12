@@ -5,6 +5,18 @@ const SPACE = " ";
 const moveBall = function(game) {
   setInterval(() => {
     game.ball.move();
+    if (game.ball.position.y > game.screen.height - game.ball.diameter) {
+      game.ball.velocity.y = -game.ball.velocity.y;
+    }
+    if (game.ball.position.x > game.screen.width - game.ball.diameter) {
+      game.ball.velocity.x = -game.ball.velocity.x;
+    }
+    if (game.ball.position.y <= 0) {
+      game.ball.velocity.y = -game.ball.velocity.y;
+    }
+    if (game.ball.position.x <= 0) {
+      game.ball.velocity.x = -game.ball.velocity.x;
+    }
     drawBall(game.ball);
   }, 10);
 };
