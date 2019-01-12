@@ -2,24 +2,24 @@ const ARROW_LEFT = "ArrowLeft";
 const ARROW_RIGHT = "ArrowRight";
 const SPACE = " ";
 
-const moveBall = function(ball) {
+const moveBall = function(game) {
   setInterval(() => {
-    ball.move();
-    drawBall(ball);
+    game.ball.move();
+    drawBall(game.ball);
   }, 10);
 };
 
-const moveScreenElements = function(paddle, ball) {
-  if (event.key == SPACE) moveBall(ball);
-  if (event.key == ARROW_LEFT) paddle.moveLeft();
-  if (event.key == ARROW_RIGHT) paddle.moveRight();
-  drawPaddle(paddle);
+const moveScreenElements = function(game) {
+  if (event.key == SPACE) moveBall(game);
+  if (event.key == ARROW_LEFT) game.movePaddleLeft();
+  if (event.key == ARROW_RIGHT) game.movePaddleRight();
+  drawPaddle(game.paddle);
 };
 
-const addKeyListener = function(paddle, ball) {
+const addKeyListener = function(game) {
   let screen = document.getElementById("screen");
   screen.focus();
-  screen.onkeydown = moveScreenElements.bind(null, paddle, ball);
+  screen.onkeydown = moveScreenElements.bind(null, game);
 };
 
 const createGameElements = function(game) {
@@ -41,7 +41,7 @@ const createGame = function() {
 
 const initialize = function() {
   let game = createGame();
-  addKeyListener(game.paddle, game.ball);
+  addKeyListener(game);
 };
 
 window.onload = initialize;
