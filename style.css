@@ -8,3 +8,9 @@ main {
   background-color: green;
   position: absolute;
 }
+
+.ball {
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+}

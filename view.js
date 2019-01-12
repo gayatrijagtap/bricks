@@ -42,3 +42,23 @@ const createScreen = function() {
   let screen = new Screen(600, 960);
   drawScreen(screen);
 };
+
+const getBall = document => document.getElementById("ball_1");
+
+const drawBall = function(ball) {
+  let ballDiv = getBall(document);
+  ballDiv.style.height = addPixelSufix(ball.height);
+  ballDiv.style.width = addPixelSufix(ball.width);
+  ballDiv.style.top = addPixelSufix(ball.top);
+  ballDiv.style.left = addPixelSufix(ball.left);
+};
+
+const createBall = function() {
+  let ballDiv = document.createElement("div");
+  ballDiv.id = "ball_1";
+  ballDiv.className = "ball";
+  let screen = getScreen(document);
+  appendChildTo(screen, ballDiv);
+  let ball = new Ball(100, 100, 0, 0);
+  drawBall(ball);
+};
