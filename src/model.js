@@ -71,11 +71,12 @@ class Ball {
 }
 
 class Game {
-  constructor(screen, paddle, ball, wall) {
+  constructor(screen, paddle, ball, wall, brick) {
     this.screen = screen;
     this.paddle = paddle;
     this.ball = ball;
     this.wall = wall;
+    this.brick = brick;
   }
 
   moveBall() {
@@ -133,5 +134,14 @@ class Wall {
 
   isColliderTouchesLeft(collider) {
     return collider.position.x <= this.right;
+  }
+}
+
+class Brick {
+  constructor(height, width, top, left) {
+    this.height = height;
+    this.width = width;
+    this.top = top;
+    this.left = left;
   }
 }

@@ -27,6 +27,7 @@ const createGameElements = function(game) {
   createScreen(game.screen);
   createPaddle(game.paddle);
   createBall(game.ball);
+  createBrick(game.brick);
 };
 
 const createGame = function() {
@@ -36,7 +37,8 @@ const createGame = function() {
   let ballPosition = new BallPosition(0, 0);
   let velocity = new Velocity(1, 1);
   let ball = new Ball(50, ballPosition, velocity);
-  let game = new Game(screen, paddle, ball, wall);
+  let brick = new Brick(30, 70, 0, 0);
+  let game = new Game(screen, paddle, ball, wall, brick);
   createGameElements(game);
   return game;
 };

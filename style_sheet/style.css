@@ -14,3 +14,9 @@ main {
   background-color: black;
   position: absolute;
 }
+
+.brick {
+  border-radius: 3px;
+  background-color: brown;
+  position: absolute;
+}
