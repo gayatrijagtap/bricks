@@ -5,7 +5,7 @@ const drawPaddle = function(paddle) {
   paddleDiv.style.height = addPixelSufix(paddle.height);
   paddleDiv.style.width = addPixelSufix(paddle.width);
   paddleDiv.style.left = addPixelSufix(paddle.left);
-  paddleDiv.style.bottom = addPixelSufix(paddle.bottom);
+  paddleDiv.style.top = addPixelSufix(paddle.top);
 };
 
 const addPixelSufix = value => value + "px";

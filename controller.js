@@ -5,20 +5,10 @@ const SPACE = " ";
 const moveBall = function(game) {
   setInterval(() => {
     game.ball.move();
-    if (game.ball.position.y > game.screen.height - game.ball.diameter) {
-      game.ball.velocity.y = -game.ball.velocity.y;
-    }
-    if (game.ball.position.x > game.screen.width - game.ball.diameter) {
-      game.ball.velocity.x = -game.ball.velocity.x;
-    }
-    if (game.ball.position.y <= 0) {
-      game.ball.velocity.y = -game.ball.velocity.y;
-    }
-    if (game.ball.position.x <= 0) {
-      game.ball.velocity.x = -game.ball.velocity.x;
-    }
+    game.paddle.detectCollision(game.ball);
+    game.wall.detectCollision(game.ball);
     drawBall(game.ball);
-  }, 10);
+  }, 1);
 };
 
 const moveScreenElements = function(game) {
@@ -42,11 +32,12 @@ const createGameElements = function(game) {
 
 const createGame = function() {
   let screen = new Screen(600, 960);
-  let paddle = new Paddle(20, 200, 380, 5);
+  let wall = new Wall(600, 0, 960, 0);
+  let paddle = new Paddle(20, 200, 380, 575);
   let ballPosition = new BallPosition(0, 0);
-  let velocity = new Velocity(5, 5);
+  let velocity = new Velocity(1, 1);
   let ball = new Ball(50, ballPosition, velocity);
-  let game = new Game(screen, paddle, ball);
+  let game = new Game(screen, paddle, ball, wall);
   createGameElements(game);
   return game;
 };
