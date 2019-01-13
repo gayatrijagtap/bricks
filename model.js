@@ -83,11 +83,20 @@ class Game {
   }
 
   movePaddleLeft() {
-    this.paddle.moveLeft();
+    if (this.paddle.left > this.wall.right) {
+      this.paddle.moveLeft();
+    }
   }
 
   movePaddleRight() {
-    this.paddle.moveRight();
+    if (this.paddle.left < this.wall.left - this.paddle.width) {
+      this.paddle.moveRight();
+    }
+  }
+
+  detectBallCollision() {
+    this.paddle.detectCollision(this.ball);
+    this.wall.detectCollision(this.ball);
   }
 }
 

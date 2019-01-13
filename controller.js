@@ -2,17 +2,16 @@ const ARROW_LEFT = "ArrowLeft";
 const ARROW_RIGHT = "ArrowRight";
 const SPACE = " ";
 
-const moveBall = function(game) {
+const animateBall = function(game) {
   setInterval(() => {
-    game.ball.move();
-    game.paddle.detectCollision(game.ball);
-    game.wall.detectCollision(game.ball);
+    game.moveBall();
+    game.detectBallCollision();
     drawBall(game.ball);
   }, 1);
 };
 
 const moveScreenElements = function(game) {
-  if (event.key == SPACE) moveBall(game);
+  if (event.key == SPACE) animateBall(game);
   if (event.key == ARROW_LEFT) game.movePaddleLeft();
   if (event.key == ARROW_RIGHT) game.movePaddleRight();
   drawPaddle(game.paddle);
