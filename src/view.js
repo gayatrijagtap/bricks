@@ -59,21 +59,21 @@ const createBall = function(ball) {
   drawBall(ball);
 };
 
-const getBrick = document => document.getElementById("brick_1");
+const getBrick = (document, brickId) => document.getElementById(brickId);
 
-const drawBrick = function(brick) {
-  let brickDiv = getBrick(document);
+const drawBrick = function(brick, brickId) {
+  let brickDiv = getBrick(document, brickId);
   brickDiv.style.height = addPixelSufix(brick.height);
   brickDiv.style.width = addPixelSufix(brick.width);
   brickDiv.style.top = addPixelSufix(brick.top);
   brickDiv.style.left = addPixelSufix(brick.left);
 };
 
-const createBrick = function(brick) {
+const createBrick = function(brick, brickId) {
   let brickDiv = document.createElement("div");
-  brickDiv.id = "brick_1";
+  brickDiv.id = "brick_" + brickId;
   brickDiv.className = "brick";
   let screen = getScreen(document);
   appendTo(screen, brickDiv);
-  drawBrick(brick);
+  drawBrick(brick, brickDiv.id);
 };

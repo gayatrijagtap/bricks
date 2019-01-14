@@ -71,12 +71,14 @@ class Ball {
 }
 
 class Game {
-  constructor(screen, paddle, ball, wall, brick) {
+  constructor(screen, paddle, ball, topWall, bottomWall, leftWall, rightWall) {
     this.screen = screen;
     this.paddle = paddle;
     this.ball = ball;
-    this.wall = wall;
-    this.brick = brick;
+    this.topWall = topWall;
+    this.bottomWall = bottomWall;
+    this.leftWall = leftWall;
+    this.rightWall = rightWall;
   }
 
   moveBall() {
@@ -84,56 +86,23 @@ class Game {
   }
 
   movePaddleLeft() {
-    if (this.paddle.left > this.wall.right) {
+    if (this.paddle.left > this.bottomWall.right) {
       this.paddle.moveLeft();
     }
   }
 
   movePaddleRight() {
-    if (this.paddle.left < this.wall.left - this.paddle.width) {
+    if (this.paddle.left < this.bottomWall.width - this.paddle.width) {
       this.paddle.moveRight();
     }
   }
 
   detectBallCollision() {
     this.paddle.detectCollision(this.ball);
-    this.wall.detectCollision(this.ball);
-  }
-}
-
-class Wall {
-  constructor(top, bottom, left, right) {
-    this.top = top;
-    this.bottom = bottom;
-    this.left = left;
-    this.right = right;
-  }
-
-  detectCollision(collider) {
-    if (this.isColliderTouchesBottom(collider))
-      collider.velocity.y = -collider.velocity.y;
-    if (this.isColliderTouchesRight(collider))
-      collider.velocity.x = -collider.velocity.x;
-    if (this.isColliderTouchesTop(collider))
-      collider.velocity.y = -collider.velocity.y;
-    if (this.isColliderTouchesLeft(collider))
-      collider.velocity.x = -collider.velocity.x;
-  }
-
-  isColliderTouchesBottom(collider) {
-    return collider.position.y > this.top - collider.diameter;
-  }
-
-  isColliderTouchesRight(collider) {
-    return collider.position.x > this.left - collider.diameter;
-  }
-
-  isColliderTouchesTop(collider) {
-    return collider.position.y <= this.bottom;
-  }
-
-  isColliderTouchesLeft(collider) {
-    return collider.position.x <= this.right;
+    this.topWall.detectCollision(this.ball);
+    this.bottomWall.detectCollision(this.ball);
+    this.leftWall.detectCollision(this.ball);
+    this.rightWall.detectCollision(this.ball);
   }
 }
 
@@ -143,5 +112,74 @@ class Brick {
     this.width = width;
     this.top = top;
     this.left = left;
+  }
+}
+
+class LeftWall {
+  constructor(height, width, right, bottom) {
+    this.height = height;
+    this.width = width;
+    this.right = right;
+    this.bottom = bottom;
+  }
+
+  detectCollision(collider) {
+    if (this.isColliderTouchesLeft(collider))
+      collider.velocity.x = -collider.velocity.x;
+  }
+
+  isColliderTouchesLeft(collider) {
+    return collider.position.x <= this.right;
+  }
+}
+
+class RightWall {
+  constructor(height, width, right, bottom) {
+    this.height = height;
+    this.width = width;
+    this.right = right;
+    this.bottom = bottom;
+  }
+  detectCollision(collider) {
+    if (this.isColliderTouchesRight(collider))
+      collider.velocity.x = -collider.velocity.x;
+  }
+
+  isColliderTouchesRight(collider) {
+    return collider.position.x > this.width - collider.diameter;
+  }
+}
+
+class TopWall {
+  constructor(height, width, right, bottom) {
+    this.height = height;
+    this.width = width;
+    this.right = right;
+    this.bottom = bottom;
+  }
+  detectCollision(collider) {
+    if (this.isColliderTouchesTop(collider))
+      collider.velocity.y = -collider.velocity.y;
+  }
+
+  isColliderTouchesTop(collider) {
+    return collider.position.y <= this.bottom;
+  }
+}
+
+class BottomWall {
+  constructor(height, width, right, bottom) {
+    this.height = height;
+    this.width = width;
+    this.right = right;
+    this.bottom = bottom;
+  }
+  detectCollision(collider) {
+    if (this.isColliderTouchesBottom(collider))
+      collider.velocity.y = -collider.velocity.y;
+  }
+
+  isColliderTouchesBottom(collider) {
+    return collider.position.y > this.height - collider.diameter;
   }
 }
