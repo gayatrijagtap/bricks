@@ -6,3 +6,9 @@ class Brick {
     this.left = left;
   }
 }
+
+class Bricks {
+  constructor(brickInstances) {
+    this.bricks = brickInstances;
+  }
+}

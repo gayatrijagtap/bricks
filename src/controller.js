@@ -54,9 +54,9 @@ const createGame = function() {
   let leftWall = new LeftWall(600, 960, 0, 0);
   let rightWall = new RightWall(600, 960, 0, 0);
   let paddle = new Paddle(20, 200, 380, 575);
-  let ballPosition = new BallPosition(0, 0);
+  let position = new Position(0, 0);
   let velocity = new Velocity(1, 1);
-  let ball = new Ball(50, ballPosition, velocity);
+  let ball = new Ball(50, position, velocity);
   let game = new Game(
     screen,
     paddle,

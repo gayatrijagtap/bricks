@@ -1,4 +1,4 @@
-class BallPosition {
+class Position {
   constructor(xPos, yPos) {
     this.x = xPos;
     this.y = yPos;
@@ -21,9 +21,9 @@ class Velocity {
 }
 
 class Ball {
-  constructor(diameter, ballPosition, velocity) {
+  constructor(diameter, position, velocity) {
     this.diameter = diameter;
-    this.position = ballPosition;
+    this.position = position;
     this.velocity = velocity;
   }
 
