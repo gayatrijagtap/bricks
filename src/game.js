@@ -1,5 +1,14 @@
 class Game {
-  constructor(screen, paddle, ball, topWall, bottomWall, leftWall, rightWall) {
+  constructor(
+    screen,
+    paddle,
+    ball,
+    topWall,
+    bottomWall,
+    leftWall,
+    rightWall,
+    bricks
+  ) {
     this.screen = screen;
     this.paddle = paddle;
     this.ball = ball;
@@ -7,6 +16,7 @@ class Game {
     this.bottomWall = bottomWall;
     this.leftWall = leftWall;
     this.rightWall = rightWall;
+    this.bricks = bricks;
   }
 
   moveBall() {

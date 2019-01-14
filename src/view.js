@@ -69,9 +69,9 @@ const drawBrick = function(brick, brickId) {
   brickDiv.style.left = addPixelSufix(brick.left);
 };
 
-const createBrick = function(brick, brickId) {
+const createBrick = function(brick) {
   let brickDiv = document.createElement("div");
-  brickDiv.id = "brick_" + brickId;
+  brickDiv.id = "brick_" + brick.id;
   brickDiv.className = "brick";
   let screen = getScreen(document);
   appendTo(screen, brickDiv);

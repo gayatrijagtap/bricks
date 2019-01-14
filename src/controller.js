@@ -27,24 +27,26 @@ const createGameElements = function(game) {
   createScreen(game.screen);
   createPaddle(game.paddle);
   createBall(game.ball);
-  createBricks();
+  game.bricks.brickInstances.map(createBrick);
 };
 
-const createBricks = function() {
-  let brickId = 1;
+const createBrickInstances = function() {
+  let brickInstances = new Array();
+  let brickId = new IdGenerator(1);
   let top = 2;
   let height = 40;
   let width = 118;
   for (let row = 1; row <= 3; row++) {
     let left = 1;
     for (let column = 1; column <= 8; column++) {
-      let brick = new Brick(height, width, top, left);
-      createBrick(brick, brickId);
+      let brick = new Brick(height, width, top, left, brickId.id);
+      brickInstances.push(brick);
       left += 120;
-      brickId += 1;
+      brickId.generateNewId();
     }
     top += 42;
   }
+  return brickInstances;
 };
 
 const createGame = function() {
@@ -57,6 +59,8 @@ const createGame = function() {
   let position = new Position(0, 0);
   let velocity = new Velocity(1, 1);
   let ball = new Ball(50, position, velocity);
+  let brickInstances = createBrickInstances();
+  let bricks = new Bricks(brickInstances);
   let game = new Game(
     screen,
     paddle,
@@ -64,7 +68,8 @@ const createGame = function() {
     topWall,
     bottomWall,
     leftWall,
-    rightWall
+    rightWall,
+    bricks
   );
   createGameElements(game);
   return game;
