@@ -18,6 +18,11 @@ class Velocity {
   negateVelocityY() {
     this.y = -this.y;
   }
+
+  makeAbsolute() {
+    this.x = Math.abs(this.x);
+    this.y = Math.abs(this.y);
+  }
 }
 
 class Ball {

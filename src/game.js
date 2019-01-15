@@ -41,6 +41,7 @@ class Game {
     this.bottomWall.detectCollision(this.ball);
     this.leftWall.detectCollision(this.ball);
     this.rightWall.detectCollision(this.ball);
+    this.bricks.detectCollision(this.ball);
   }
 }
 

@@ -4,7 +4,7 @@ class Paddle {
     this.width = width;
     this.left = left;
     this.top = top;
-    this.speed = speed;
+    this.speed = speed;                   
   }
 
   moveLeft() {
